@@ -1,0 +1,11 @@
+header,
+.visionwalk {
+  background: linear-gradient(
+      295deg,
+      rgb(2 132 199 / 85%),
+      rgb(2 132 199 / 85%)
+    ),
+    url('../public/eye.jpeg');
+  background-size: cover;
+  background-position: center;
+}
