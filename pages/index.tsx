@@ -44,7 +44,15 @@ const Index = () => {
 
   return (
     <>
-      <NextSeo title='Welcome' />
+      <NextSeo
+        title='Welcome'
+        additionalMetaTags={[
+          {
+            property: 'author',
+            content: 'Ryan Huellen'
+          }
+        ]}
+      />
       <div>
         {/* Mobile menu */}
         <Transition.Root show={open} as={Fragment}>
