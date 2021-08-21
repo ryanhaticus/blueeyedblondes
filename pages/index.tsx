@@ -23,6 +23,8 @@ import About from '../components/About';
 import VisionWalk from '../components/VisionWalk';
 import Footer from '../components/Footer';
 
+import Link from 'next/link';
+
 const navigation = {
   pages: [
     { name: 'Blue Eyed Blondes', href: '/' },
@@ -87,14 +89,27 @@ const Index = () => {
                 <div className='mt-2 border-t border-gray-200 py-6 px-4 space-y-6'>
                   {navigation.pages.map((page) => (
                     <div key={page.name} className='flow-root'>
-                      <a
-                        href={page.href}
-                        target='_blank'
-                        rel='noreferrer'
-                        className='-m-2 p-2 block font-medium text-gray-900'
-                      >
-                        {page.name}
-                      </a>
+                      {page.href === '/' && (
+                        <Link href='/'>
+                          <a
+                            target='_blank'
+                            rel='noreferrer'
+                            className='-m-2 p-2 block font-medium text-gray-900'
+                          >
+                            {page.name}
+                          </a>
+                        </Link>
+                      )}
+                      {page.href !== '/' && (
+                        <a
+                          href={page.href}
+                          target='_blank'
+                          rel='noreferrer'
+                          className='-m-2 p-2 block font-medium text-gray-900'
+                        >
+                          {page.name}
+                        </a>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -132,14 +147,16 @@ const Index = () => {
 
                 {/* Logo */}
                 <div className='ml-4 flex lg:ml-0'>
-                  <a href='/'>
-                    <span className='sr-only'>Blue Eyed Blondes</span>
-                    <img
-                      className='h-8 w-auto'
-                      src='/beb.svg'
-                      alt='Blue Eyed Blondes'
-                    />
-                  </a>
+                  <Link href='/'>
+                    <a>
+                      <span className='sr-only'>Blue Eyed Blondes</span>
+                      <img
+                        className='h-8 w-auto'
+                        src='/beb.svg'
+                        alt='Blue Eyed Blondes'
+                      />
+                    </a>
+                  </Link>
                 </div>
 
                 {/* Flyout menus */}
